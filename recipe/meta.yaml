@@ -1,5 +1,5 @@
 {% set name = "revertex" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/revertex-{{ version }}.tar.gz
-  sha256: 6997c4d17e94d1a723ae1b420530ddbe313040372ef5d6b41fc56e14399cb345
+  sha256: 8a2629c7e2a01062fc294467631ab12d01ade3701e239da0b081db290275cdbd
 
 build:
   noarch: python
@@ -17,7 +17,7 @@ build:
 requirements:
   host:
     - python {{ python_min }}
-    - setuptools >=61.2
+    - setuptools >=77
     - setuptools-scm >=7
     - pip
   run:
@@ -28,8 +28,8 @@ requirements:
     - numpy
     - awkward
     - legend-pydataobj >=1.11.6
-    - legend-pygeom-hpges >=0.8.2
-    - legend-pygeom-tools
+    - legend-pygeom-hpges >=0.9.0
+    - legend-pygeom-tools >=0.0.25
     - reboost
     - dbetto
     - matplotlib-base

@@ -12,7 +12,9 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
+  entry_points:
+    - revertex = revertex.cli:cli
 
 requirements:
   host:
@@ -39,6 +41,7 @@ test:
     - revertex
   commands:
     - pip check
+    - revertex -h
   requires:
     - python {{ python_min }}
     - pip

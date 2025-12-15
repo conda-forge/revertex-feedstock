@@ -1,5 +1,5 @@
 {% set name = "revertex" %}
-{% set version = "0.1.2" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/revertex-{{ version }}.tar.gz
-  sha256: 8a2629c7e2a01062fc294467631ab12d01ade3701e239da0b081db290275cdbd
+  sha256: ff09769451563809a98359d51e2b7de02fbb4e85443bdbae1c28453d9c9e7542
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
   entry_points:
     - revertex = revertex.cli:cli
 

@@ -1,0 +1,64 @@
+schema_version: 1
+
+context:
+  name: revertex
+  version: "0.4.0"
+  python_min: "3.11"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/revertex-${{ version }}.tar.gz
+  sha256: 34cdcf217543048289e7d7d98388a581ccea7f9ed78d188f5206545af8c4744f
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+  python:
+    entry_points:
+      - revertex = revertex.cli:cli
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=77
+    - setuptools-scm >=7
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - pyg4ometry
+    - hist
+    - scipy
+    - numpy
+    - awkward
+    - legend-pydataobj >=1.11.6
+    - legend-pygeom-hpges >=0.9.0
+    - legend-pygeom-tools >=0.0.25
+    - reboost
+    - dbetto
+    - matplotlib-base
+
+tests:
+  - python:
+      imports:
+        - revertex
+      pip_check: true
+      python_version: ${{ python_min }}
+  - script:
+      - revertex -h
+
+about:
+  summary: Generate Geant4 event vertices in Python
+  license: GPL-3.0-only
+  license_file: LICENSE
+  homepage: https://github.com/legend-exp/revertex
+  repository: https://github.com/legend-exp/revertex
+  documentation: https://revertex.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - gipert
+    - ManuelHu

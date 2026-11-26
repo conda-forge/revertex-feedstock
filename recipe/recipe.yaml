@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: revertex
-  version: "0.6.0"
+  version: "0.7.0"
   python_min: '3.11'
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/revertex-${{ version }}.tar.gz
-  sha256: bc9da7568ee3a00d5592bd7adaa167137b7e2df63e8f5d85b5219568bd6755dc
+  sha256: 9ca22185f662c74f8ef63ad0768610c2c8c994ad6e7b07858b577702d9d69215
 
 build:
   number: 0
